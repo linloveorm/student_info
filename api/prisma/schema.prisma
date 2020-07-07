@@ -1,0 +1,236 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+datasource DS {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model academic_year {
+  airtable_id String?
+  id          Int     @default(autoincrement()) @id
+  name        String? @unique
+  offer       offer[]
+}
+
+model assessment {
+  comment         String?
+  course_id       Int
+  id              Int             @default(autoincrement()) @id
+  name            String?
+  score           Int
+  student_id      Int?
+  course_instance course_instance @relation(fields: [course_id], references: [id])
+  user_info       user_info?      @relation(fields: [student_id], references: [id])
+}
+
+model course {
+  airtable_id     String?
+  code            String?
+  description     String?
+  id              Int               @default(autoincrement()) @id
+  name            String?
+  course_instance course_instance[]
+}
+
+model course_instance {
+  assistant                            String?
+  assistant_email                      String?
+  capacity                             Int
+  course_id                            Int
+  course_url                           String?
+  credits                              Int?                                   @default(12)
+  id                                   Int                                    @default(autoincrement()) @id
+  offer_id                             Int?
+  program_instance_id                  Int
+  room_id                              Int?
+  course                               course                                 @relation(fields: [course_id], references: [id])
+  offer                                offer?                                 @relation(fields: [offer_id], references: [id])
+  program_instance                     program_instance                       @relation(fields: [program_instance_id], references: [id])
+  room                                 room?                                  @relation(fields: [room_id], references: [id])
+  assessment                           assessment[]
+  join_course_instance_course_schedule join_course_instance_course_schedule[]
+  join_enrollment_course_instance      join_enrollment_course_instance[]
+  join_instructor_course_instance      join_instructor_course_instance[]
+  join_student_course_instance         join_student_course_instance[]
+}
+
+model course_schedule {
+  day_of_week                          Int?
+  end_time                             DateTime?
+  id                                   Int                                    @default(autoincrement()) @id
+  start_time                           DateTime?
+  time_zone                            String?
+  join_course_instance_course_schedule join_course_instance_course_schedule[]
+
+  @@unique([day_of_week, start_time, end_time], name: "ukoji9gi5r7hpbg3u69slk338cb")
+}
+
+model enrollment {
+  id                              Int                               @default(autoincrement()) @id
+  invoice_url                     String?
+  offer_id                        Int?
+  program_instance_id             Int?
+  registered_credits              Int
+  status                          String?
+  student_id                      Int?
+  type                            String?
+  offer                           offer?                            @relation(fields: [offer_id], references: [id])
+  program_instance                program_instance?                 @relation(fields: [program_instance_id], references: [id])
+  user_info                       user_info?                        @relation(fields: [student_id], references: [id])
+  join_enrollment_course_instance join_enrollment_course_instance[]
+}
+
+model finance {
+  balance       Float?      @default(0.0000)
+  currency      String?
+  id            Int         @default(autoincrement()) @id
+  last_modified DateTime?
+  user_info     user_info[]
+}
+
+model join_course_instance_course_schedule {
+  course_instance_id Int
+  course_schedule_id Int
+  course_instance    course_instance @relation(fields: [course_instance_id], references: [id])
+  course_schedule    course_schedule @relation(fields: [course_schedule_id], references: [id])
+
+  @@id([course_instance_id, course_schedule_id])
+}
+
+model join_enrollment_course_instance {
+  approved           Boolean
+  approved_at        DateTime?
+  course_instance_id Int?
+  enrollment_id      Int?
+  id                 Int              @default(autoincrement()) @id
+  registered_at      DateTime?
+  status             String?
+  course_instance    course_instance? @relation(fields: [course_instance_id], references: [id])
+  enrollment         enrollment?      @relation(fields: [enrollment_id], references: [id])
+}
+
+model join_instructor_course_instance {
+  course_instance_id Int?
+  id                 Int              @default(autoincrement()) @id
+  instructor_id      Int?
+  course_instance    course_instance? @relation(fields: [course_instance_id], references: [id])
+  user_info          user_info?       @relation(fields: [instructor_id], references: [id])
+}
+
+model join_student_course_instance {
+  course_instance_id Int?
+  grade              Int?
+  id                 Int              @default(autoincrement()) @id
+  student_id         Int?
+  course_instance    course_instance? @relation(fields: [course_instance_id], references: [id])
+  user_info          user_info?       @relation(fields: [student_id], references: [id])
+}
+
+model offer {
+  academic_year_id   Int
+  airtable_id        String?
+  ending_date        DateTime?
+  end_registration   DateTime?
+  id                 Int               @default(autoincrement()) @id
+  semester_id        Int
+  starting_date      DateTime?
+  start_registration DateTime?
+  time_zone          String?
+  academic_year      academic_year     @relation(fields: [academic_year_id], references: [id])
+  semester           semester          @relation(fields: [semester_id], references: [id])
+  course_instance    course_instance[]
+  enrollment         enrollment[]
+}
+
+model program {
+  airtable_id      String?
+  description      String?
+  id               Int                @default(autoincrement()) @id
+  name             String?
+  short_name       String?
+  program_instance program_instance[]
+}
+
+model program_instance {
+  effective_date  DateTime?
+  id              Int               @default(autoincrement()) @id
+  program_id      Int
+  program         program           @relation(fields: [program_id], references: [id])
+  course_instance course_instance[]
+  enrollment      enrollment[]
+  user_info       user_info[]
+}
+
+model reservation {
+  from_time     DateTime?
+  id            Int        @default(autoincrement()) @id
+  room_id       Int?
+  selected_date DateTime?
+  time_zone     String?
+  until_time    DateTime?
+  user_id       Int?
+  room          room?      @relation(fields: [room_id], references: [id])
+  user_info     user_info? @relation(fields: [user_id], references: [id])
+}
+
+model room {
+  building        String?
+  id              Int               @default(autoincrement()) @id
+  room_number     String?
+  course_instance course_instance[]
+  reservation     reservation[]
+}
+
+model semester {
+  airtable_id String?
+  id          Int     @default(autoincrement()) @id
+  name        String? @unique
+  offer       offer[]
+}
+
+model user_info {
+  activated                       Boolean?
+  address                         String?
+  advisor_id                      Int?
+  airtable_id                     String?
+  city                            String?
+  country                         String?
+  credits_earned                  Int?
+  credits_incurred                Int?
+  display_name                    String?
+  email                           String?
+  emergency_contact               String?
+  emergency_name                  String?
+  finance_id                      Int?
+  first_login                     Boolean?
+  first_name                      String?
+  gpa                             Float?
+  id                              Int                               @default(autoincrement()) @id
+  last_name                       String?
+  phone_number                    String?
+  photo_url                       String?
+  postal                          String?
+  program_instance_id             Int?
+  region                          String?
+  registrable                     Boolean?
+  secondary_email                 String?
+  street1                         String?
+  street2                         String?
+  student_id                      String?
+  user_id                         String?                           @unique
+  user_type                       String
+  user_info                       user_info?                        @relation("user_infoTouser_info_advisor_id", fields: [advisor_id], references: [id])
+  finance                         finance?                          @relation(fields: [finance_id], references: [id])
+  program_instance                program_instance?                 @relation(fields: [program_instance_id], references: [id])
+  assessment                      assessment[]
+  enrollment                      enrollment[]
+  join_instructor_course_instance join_instructor_course_instance[]
+  join_student_course_instance    join_student_course_instance[]
+  reservation                     reservation[]
+  other_user_info                 user_info[]                       @relation("user_infoTouser_info_advisor_id")
+
+  @@index([email], name: "idxgnu0k8vv6ptioedbxbfsnan9g")
+}
