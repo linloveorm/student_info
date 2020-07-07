@@ -80,25 +80,6 @@ const Routes = () => {
           />
         </Switch>
       </div>
-
-      <div>
-        <Router>
-          <Route path="/callback" page={CallbackPage} name="callback" />
-          <Route path="/typography" page={TypographyPage} name="typography" />
-          <Route path="/profile" page={ProfilePage} name="profile" />
-          <Route path="/finance" page={FinancePage} name="finance" />
-          <Route path="/icon" page={IconPage} name="icon" />
-          <Route path="/dashboard" page={DashboardPage} name="dashboard" />
-          <Route path="/setting" page={SettingPage} name="setting" />
-          <Route path="/account" page={AccountPage} name="account" />
-          <Route path="/" page={FirstPage} name="first" />
-          <Route path="/reset-pass" page={ResetPassPage} name="resetPass" />
-          <Route path="/login" page={LoginPage} name="login" />
-
-          <Route path="/info" page={InfoPage} name="info" />
-          <Route notfound page={NotFoundPage} />
-        </Router>
-      </div>
     </div>
   )
 }
