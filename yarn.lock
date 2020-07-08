@@ -79,7 +79,14 @@
   dependencies:
     xss "^1.0.6"
 
-"@auth0/auth0-spa-js@^1.10.0":
+"@auth0/auth0-react@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@auth0/auth0-react/-/auth0-react-1.0.0.tgz#3eeced9557d54d4092032ecc071cd74052d09da7"
+  integrity sha512-AaGftJFXYsJNEHZq/PNNr5HVSOQCVjstBF2pD3gAwOrgjKO7fYoeNgKKQOcTLm/ge5vAkEBGgSBzWBj2SgZ38w==
+  dependencies:
+    "@auth0/auth0-spa-js" "^1.9.0"
+
+"@auth0/auth0-spa-js@^1.10.0", "@auth0/auth0-spa-js@^1.9.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@auth0/auth0-spa-js/-/auth0-spa-js-1.10.0.tgz#1be6536109a7c12255ceecae51b2a8fe82e9535b"
   integrity sha512-EUpnGK6GnKUiHnGbP+Y+yKD+FZ8/kEkjPeLxQi0gCGJkvTSLnKd/IbPJLUzyzXFTqDCw1ZkTu24/Uw5B3Ou2JQ==
@@ -1438,6 +1445,13 @@
   version "2.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.0.0-beta.6.tgz#781eb8900ed265c6d7d35f1b5dd9b19f91440b40"
   integrity sha512-08AokCpMzL6SdxQVfShD7937t+sHntr6FJBpVKq5E/UFPVh0B2lUwU9YrA/MIAdRpGMg1wA+rdwRivtFIs5Law==
+
+"@prisma/client@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.2.0.tgz#be390658688702a5980b2c8eec673e5a20d90e36"
+  integrity sha512-i7zcVEtMk3QCPCc/oC+vQG2pyXYWWzhPZ11bBxgULo0gL7C/3GPZvAvAkNxpQ0mmt46EdzvpgEBNbg4VdjiR+Q==
+  dependencies:
+    pkg-up "^3.1.0"
 
 "@prisma/debug@2.1.3":
   version "2.1.3"
