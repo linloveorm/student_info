@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Link, routes, navigate } from '@redwoodjs/router'
+import { Link, navigate } from '@redwoodjs/router'
 import { Grid, Typography, Button, CardActions } from '@material-ui/core'
 import { useAuth } from '@redwoodjs/auth'
 

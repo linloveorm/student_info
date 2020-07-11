@@ -1,84 +1,59 @@
-// In this file, all Page components from 'src/pages` are auto-imported. Nested
+// In this file, all Page pages from 'src/pages` are auto-imported. Nested
 // directories are supported, and should be uppercase. Each subdirectory will be
-// prepended onto the component name.
+// prepended onto the page name.
 //
 // Examples:
 //
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
-import { Switch, Redirect } from 'react-router-dom'
-import { Router, Route } from '@redwoodjs/router'
+//import { Switch, Redirect } from 'react-router-dom'
+import { Router, Route, Redirect } from '@redwoodjs/router'
 
-import { RouteWithLayout } from './components'
+// import { Route } from './pages'
 import { Main as MainLayout } from './layouts'
 import {
-  Dashboard as DashboardView,
-  MyFinance as MyFinanceView,
-  Profile as ProfileView,
-  Typography as TypographyView,
-  Icons as IconsView,
-  Account as AccountView,
-  Settings as SettingsView,
-} from './views'
+  Dashboard as DashboardPage,
+  Finance as FinancePage,
+  Profile as ProfilePage,
+  Typography as TypographyPage,
+  Icon as IconPage,
+  Account as AccountPage,
+  Setting as SettingPage,
+} from './pages'
 
 const Routes = () => {
   return (
     <div>
       <div>
-        <Switch>
+        <Router>
           <Redirect
             exact
             from="/"
             to="/account"
             // to="/sign-in"
-            component={AccountView}
+            page={AccountPage}
             layout={MainLayout}
             // path="/sign-in"
           />
-          <RouteWithLayout
-            component={DashboardView}
+          <Route
+            page={DashboardPage}
             exact
             layout={MainLayout}
             path="/dashboard"
           />
 
-          <RouteWithLayout
-            component={ProfileView}
-            exact
-            layout={MainLayout}
-            path="/profile"
-          />
-          <RouteWithLayout
-            component={MyFinanceView}
-            exact
-            layout={MainLayout}
-            path="/finance"
-          />
-          <RouteWithLayout
-            component={TypographyView}
+          <Route page={ProfilePage} exact layout={MainLayout} path="/profile" />
+          <Route page={FinancePage} exact layout={MainLayout} path="/finance" />
+          <Route
+            page={TypographyPage}
             exact
             layout={MainLayout}
             path="/typography"
           />
-          <RouteWithLayout
-            component={IconsView}
-            exact
-            layout={MainLayout}
-            path="/icons"
-          />
-          <RouteWithLayout
-            component={AccountView}
-            exact
-            layout={MainLayout}
-            path="/account"
-          />
-          <RouteWithLayout
-            component={SettingsView}
-            exact
-            layout={MainLayout}
-            path="/setting"
-          />
-        </Switch>
+          <Route page={IconPage} exact layout={MainLayout} path="/icon" />
+          <Route page={AccountPage} exact layout={MainLayout} path="/account" />
+          <Route page={SettingPage} exact layout={MainLayout} path="/setting" />
+        </Router>
       </div>
     </div>
   )

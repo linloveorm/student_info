@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@material-ui/styles'
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { AuthProvider } from '@redwoodjs/auth'
-import Auth0Client from '@auth0/auth0-spa-js'
+import { Auth0Client } from '@auth0/auth0-spa-js'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 
 import Routes from 'src/Routes'
@@ -13,7 +13,7 @@ const auth0 = new Auth0Client({
   client_id: 'Hf1MTzXndZxKu0KPOWyBwG3WTc00RRaH',
   redirect_uri: 'http://localhost:8910/account',
   cacheLocation: 'localstorage',
-  audience: process.env.AUTH0_CLIENT_ID,
+  audience: 'http://localhost:8910/',
 })
 
 // const App = () => {

@@ -17,19 +17,12 @@
     "node": ">=12",
     "yarn": ">=1.15"
   },
-  "browser": { "fs": false, "path": false, "os": false},
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "scripts": {
     "build": "webpack"
   }
-
-
-
-
-
-
-
-
 }
-
-
-

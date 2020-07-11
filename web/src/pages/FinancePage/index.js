@@ -1,1 +1,1 @@
-export { default } from './MyFinance'
+export { default } from './FinancePage'

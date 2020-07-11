@@ -1,22 +1,21 @@
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import { AppBar, Toolbar } from '@material-ui/core';
-
+import React from 'react'
+import { Link as RouterLink } from 'react-router-dom'
+import clsx from 'clsx'
+import PropTypes from 'prop-types'
+import { makeStyles } from '@material-ui/styles'
+import { AppBar, Toolbar } from '@material-ui/core'
 
 const useStyles = makeStyles(() => ({
   root: {
     background: '#CF272F',
-    boxShadow: 'none'
-  }
-}));
+    boxShadow: 'none',
+  },
+}))
 
-const Topbar = props => {
-  const { className, ...rest } = props;
+const Topbar = (props) => {
+  const { className, ...rest } = props
 
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <AppBar
@@ -25,7 +24,7 @@ const Topbar = props => {
       // color="primary"
       position="fixed"
     >
-      <Toolbar >
+      <Toolbar>
         <RouterLink to="/">
           {/* <img
             alt="Logo"
@@ -34,11 +33,11 @@ const Topbar = props => {
         </RouterLink>
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
 Topbar.propTypes = {
-  className: PropTypes.string
-};
+  className: PropTypes.string,
+}
 
-export default Topbar;
+export default Topbar
