@@ -3,9 +3,10 @@ import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { AuthProvider } from '@redwoodjs/auth'
 import { Auth0Client } from '@auth0/auth0-spa-js'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
+import { Router } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
-import Routes from 'src/Routes'
-
+import Routes from './Routes'
 import theme from './theme'
 
 const auth0 = new Auth0Client({
@@ -15,6 +16,8 @@ const auth0 = new Auth0Client({
   cacheLocation: 'localstorage',
   audience: 'http://localhost:8910/',
 })
+
+const browserHistory = createBrowserHistory()
 
 // const App = () => {
 //   return (
@@ -54,7 +57,9 @@ export default () => (
     <AuthProvider client={auth0} type="auth0">
       <ThemeProvider theme={theme}>
         <RedwoodProvider>
-          <Routes />
+          <Router history={browserHistory}>
+            <Routes />
+          </Router>
         </RedwoodProvider>
       </ThemeProvider>
     </AuthProvider>

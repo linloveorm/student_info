@@ -6,10 +6,12 @@
 //
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
-//import { Switch, Redirect } from 'react-router-dom'
-import { Router, Route, Redirect } from '@redwoodjs/router'
+
+import { Switch, Redirect, Route } from 'react-router-dom'
+// import { Router, Route } from '@redwoodjs/router'
 
 // import { Route } from './pages'
+import { RouteWithLayout } from './components'
 import { Main as MainLayout } from './layouts'
 import {
   Dashboard as DashboardPage,
@@ -19,41 +21,75 @@ import {
   Icon as IconPage,
   Account as AccountPage,
   Setting as SettingPage,
+  First as FirstPage,
 } from './pages'
 
 const Routes = () => {
   return (
     <div>
       <div>
-        <Router>
+        <Switch>
           <Redirect
             exact
             from="/"
-            to="/account"
+            to="/first"
             // to="/sign-in"
-            page={AccountPage}
+            page={FirstPage}
             layout={MainLayout}
             // path="/sign-in"
           />
-          <Route
-            page={DashboardPage}
+          <RouteWithLayout
+            component={DashboardPage}
             exact
             layout={MainLayout}
             path="/dashboard"
+            name="dashboard"
           />
 
-          <Route page={ProfilePage} exact layout={MainLayout} path="/profile" />
-          <Route page={FinancePage} exact layout={MainLayout} path="/finance" />
-          <Route
-            page={TypographyPage}
+          <RouteWithLayout
+            component={ProfilePage}
+            exact
+            layout={MainLayout}
+            path="/profile"
+            name="profile"
+          />
+          <RouteWithLayout
+            component={FinancePage}
+            exact
+            layout={MainLayout}
+            path="/finance"
+            name="finance"
+          />
+          <RouteWithLayout
+            component={TypographyPage}
             exact
             layout={MainLayout}
             path="/typography"
+            name="typograph"
           />
-          <Route page={IconPage} exact layout={MainLayout} path="/icon" />
-          <Route page={AccountPage} exact layout={MainLayout} path="/account" />
-          <Route page={SettingPage} exact layout={MainLayout} path="/setting" />
-        </Router>
+          <RouteWithLayout
+            component={IconPage}
+            exact
+            layout={MainLayout}
+            path="/icon"
+            name="icon"
+          />
+          <RouteWithLayout
+            component={AccountPage}
+            exact
+            layout={MainLayout}
+            path="/account"
+            name="account"
+          />
+          <RouteWithLayout
+            component={SettingPage}
+            exact
+            layout={MainLayout}
+            path="/setting"
+            name="setting"
+          />
+          <Route page={FirstPage} path="/first" name="first" />
+        </Switch>
       </div>
     </div>
   )

@@ -7,3 +7,4 @@ export { default as Setting } from './SettingPage'
 
 export { default as Typography } from './TypographyPage'
 export { default as Profile } from './ProfilePage'
+export { default as First } from './FirstPage'
