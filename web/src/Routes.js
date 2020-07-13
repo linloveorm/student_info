@@ -7,12 +7,12 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Switch, Redirect, Route } from 'react-router-dom'
+import { Switch, Redirect } from 'react-router-dom'
 // import { Router, Route } from '@redwoodjs/router'
 
 // import { Route } from './pages'
 import { RouteWithLayout } from './components'
-import { Main as MainLayout } from './layouts'
+import { Main as MainLayout, Minimal as MinimalLayout } from './layouts'
 import {
   Dashboard as DashboardPage,
   Finance as FinancePage,
@@ -22,6 +22,7 @@ import {
   Account as AccountPage,
   Setting as SettingPage,
   First as FirstPage,
+  NotFound as NotFoundPage,
 } from './pages'
 
 const Routes = () => {
@@ -88,7 +89,20 @@ const Routes = () => {
             path="/setting"
             name="setting"
           />
-          <Route page={FirstPage} path="/first" name="first" />
+          <RouteWithLayout
+            exact
+            layout={MinimalLayout}
+            component={FirstPage}
+            path="/first"
+            name="first"
+          />
+          <RouteWithLayout
+            component={NotFoundPage}
+            exact
+            layout={MinimalLayout}
+            path="/not-found"
+          />
+          <Redirect to="/not-found" />
         </Switch>
       </div>
     </div>
