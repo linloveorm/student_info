@@ -12618,6 +12618,11 @@ redis@^2.8.0:
     redis-commands "^1.2.0"
     redis-parser "^2.6.0"
 
+redwood@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/redwood/-/redwood-0.0.1.tgz#474a1a107b0b4e069b0dbb0dd975108495234158"
+  integrity sha1-R0oaEHsLTgabDbsN2XUQhJUjQVg=
+
 redwoodjs@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/redwoodjs/-/redwoodjs-1.0.7.tgz#8fd4377d302b9db0de6ff8d9925a081be333fb44"

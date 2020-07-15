@@ -88,7 +88,7 @@ const Routes = () => {
             path="/setting"
             name="setting"
           />
-          <Route page={FirstPage} path="/first" name="first" />
+          <Route component={FirstPage} path="/first" name="first" />
         </Switch>
       </div>
     </div>

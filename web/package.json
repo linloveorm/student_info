@@ -45,6 +45,7 @@
     "react-grid-layout": "^0.18.3",
     "react-router-dom": "^5.2.0",
     "react-swipeable-views": "^0.13.9",
+    "redwood": "^0.0.1",
     "redwoodjs": "^1.0.7",
     "server": "^1.0.29",
     "sockjs-client": "^1.4.0",
