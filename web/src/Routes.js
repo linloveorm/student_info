@@ -90,9 +90,9 @@ const Routes = () => {
             name="setting"
           />
           <RouteWithLayout
+            component={FirstPage}
             exact
             layout={MinimalLayout}
-            component={FirstPage}
             path="/first"
             name="first"
           />
