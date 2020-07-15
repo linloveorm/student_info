@@ -1,0 +1,113 @@
+
+
+.center{
+  margin: auto;
+  width: 50%;
+  border: none;
+  padding: 10;
+}
+
+.login-header{
+  text-align: center;
+  background-color:#860505 ;
+}
+
+.text-input{
+  margin-left: 45%;
+  width: 500px;
+  margin-right: 50%;
+}
+
+.img-student{
+  margin-left: 45%;
+
+}
+
+form{
+  margin-left: 30px;
+  margin-right: 150px;
+}
+
+.input-group-text{
+  display: block;
+  outline: none;
+}
+
+.forget-color{
+  color: #BEBEBE;
+  margin-left: 25%;
+
+}
+.forget-color:hover{
+  color: #BEBEBE;
+
+}
+
+
+.forget-password{
+  margin-top: 3%;
+}
+
+input, textarea, select {
+  display: block;
+  outline: none;
+  font-size: 16;
+  size: 22;
+  align-content: center;
+
+
+}
+
+
+button{
+
+  display: block;
+  outline: none;
+  width: 300px;
+
+  text-size-adjust: 8px;
+  border: none;
+
+}
+
+label {
+
+  display: block;
+  outline: none;
+  width: 50rem;
+  height: 1rem;
+  text-size-adjust: 22;
+
+
+}
+
+.error {
+  margin-left: 30rem;
+  color: #8B0000;
+}
+
+input.error, textarea.error {
+  border: 1px solid red;
+}
+
+.Login-Button{
+  background-color: aquamarine;
+  width: 5cm;
+  height: 1cm;
+  margin-top: 0.5cm;
+  border-radius: 25px;
+
+}
+
+.Logout-Button{
+  background-color:lightcoral;
+  width: 5cm;
+  height: 1cm;
+  margin-top: 0.5cm;
+  border-radius: 25px;
+  text-size-adjust: 8px
+
+}
+
+
+/*# sourceMappingURL=app.17965c70.css.map*/
