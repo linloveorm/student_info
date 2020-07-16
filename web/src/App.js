@@ -12,9 +12,9 @@ import theme from './theme'
 const auth0 = new Auth0Client({
   domain: 'cmkl-omega.auth0.com',
   client_id: 'Hf1MTzXndZxKu0KPOWyBwG3WTc00RRaH',
-  redirect_uri: 'https://128.199.87.182:8910/account',
+  redirect_uri: 'http://128.199.87.182:8910/account',
   cacheLocation: 'localstorage',
-  audience: 'https://128.199.87.182:8910',
+  audience: 'http://128.199.87.182:8910',
 })
 
 const browserHistory = createBrowserHistory()
