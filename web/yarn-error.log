@@ -1,20 +1,20 @@
 Arguments: 
-  /home/piinn/.nvm/versions/node/v14.3.0/bin/node /usr/share/yarn/bin/yarn.js add @redwoodjs/react-dom
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add @material-ui/icon
 
 PATH: 
-  /home/piinn/.local/bin:/home/piinn/.nvm/versions/node/v14.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.2/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.2/libnvvp:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/HP/Common/HPDestPlgIn/:/mnt/c/Program Files/Java/jdk1.8.0_181/bin:/mnt/c/Users/Piinn/jpype:/mnt/g/My Drive/Paper/Test cutting word/hunspell-1.3.2-3-w32-bin-1/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/d/microblog/venv:/mnt/c/Users/Piinn/Anaconda3:/mnt/c/Users/Piinn/Anaconda3/Library/mingw-w64/bin:/mnt/c/Users/Piinn/Anaconda3/Library/usr/bin:/mnt/c/Users/Piinn/Anaconda3/Library/bin:/mnt/c/Users/Piinn/Anaconda3/Scripts:/mnt/c/Users/Piinn/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Piinn/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin:/%VS14_PATH/bin/amd64:/%VS14_PATH/include:/%VS14_PATH/lib:/mnt/c/Program Files/Docker Toolbox:/mnt/c/Users/Piinn/AppData/Roaming/npm:/snap/bin
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.22.4
 
 Node version: 
-  14.3.0
+  12.18.1
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@redwoodjs%2freact-dom: Not found
+  Error: https://registry.yarnpkg.com/@material-ui%2ficon: Not found
       at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66987:18)
       at Request.self.callback (/usr/share/yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:315:20)
@@ -23,7 +23,7 @@ Trace:
       at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141642:12)
       at Object.onceWrapper (events.js:421:28)
       at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (_stream_readable.js:1224:12)
+      at endReadableNT (_stream_readable.js:1221:12)
       at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
@@ -35,13 +35,15 @@ npm manifest:
       "defaults"
     ],
     "dependencies": {
+      "@auth0/auth0-react": "^1.0.0",
       "@auth0/auth0-spa-js": "^1.10.0",
       "@babel/core": "^7.10.2",
       "@babel/runtime": "^7.10.2",
-      "@material-ui/core": "^4.10.2",
+      "@material-ui/core": "^4.11.0",
       "@material-ui/icons": "^4.9.1",
       "@material-ui/styles": "^4.10.0",
-      "@redwoodjs/auth": "^0.12.0",
+      "@prisma/client": "^2.2.0",
+      "@redwoodjs/auth": "^0.13.0",
       "@redwoodjs/core": "^0.12.0",
       "@redwoodjs/internal": "^0.12.0",
       "@redwoodjs/router": "^0.8.2",
@@ -72,6 +74,7 @@ npm manifest:
       "react-grid-layout": "^0.18.3",
       "react-router-dom": "^5.2.0",
       "react-swipeable-views": "^0.13.9",
+      "redwood": "^0.0.1",
       "redwoodjs": "^1.0.7",
       "server": "^1.0.29",
       "sockjs-client": "^1.4.0",
@@ -181,7 +184,14 @@ Lockfile:
     dependencies:
       xss "^1.0.6"
   
-  "@auth0/auth0-spa-js@^1.10.0":
+  "@auth0/auth0-react@^1.0.0":
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/@auth0/auth0-react/-/auth0-react-1.0.0.tgz#3eeced9557d54d4092032ecc071cd74052d09da7"
+    integrity sha512-AaGftJFXYsJNEHZq/PNNr5HVSOQCVjstBF2pD3gAwOrgjKO7fYoeNgKKQOcTLm/ge5vAkEBGgSBzWBj2SgZ38w==
+    dependencies:
+      "@auth0/auth0-spa-js" "^1.9.0"
+  
+  "@auth0/auth0-spa-js@^1.10.0", "@auth0/auth0-spa-js@^1.9.0":
     version "1.10.0"
     resolved "https://registry.yarnpkg.com/@auth0/auth0-spa-js/-/auth0-spa-js-1.10.0.tgz#1be6536109a7c12255ceecae51b2a8fe82e9535b"
     integrity sha512-EUpnGK6GnKUiHnGbP+Y+yKD+FZ8/kEkjPeLxQi0gCGJkvTSLnKd/IbPJLUzyzXFTqDCw1ZkTu24/Uw5B3Ou2JQ==
@@ -1416,10 +1426,10 @@ Lockfile:
       "@types/yargs" "^15.0.0"
       chalk "^3.0.0"
   
-  "@material-ui/core@^4.10.2":
-    version "4.10.2"
-    resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.10.2.tgz#0ef78572132fcef1a25f6969bce0d34652d42e31"
-    integrity sha512-Uf4iDLi9sW6HKbVQDyDZDr1nMR4RUAE7w/RIIJZGNVZResC0xwmpLRZMtaUdSO43N0R0yJehfxTi4Z461Cd49A==
+  "@material-ui/core@^4.11.0":
+    version "4.11.0"
+    resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.11.0.tgz#b69b26e4553c9e53f2bfaf1053e216a0af9be15a"
+    integrity sha512-bYo9uIub8wGhZySHqLQ833zi4ZML+XCBE1XwJ8EuUVSpTWWG57Pm+YugQToJNFsEyiKFhPh8DPD0bgupz8n01g==
     dependencies:
       "@babel/runtime" "^7.4.4"
       "@material-ui/styles" "^4.10.0"
@@ -1540,6 +1550,13 @@ Lockfile:
     version "2.0.0-beta.6"
     resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.0.0-beta.6.tgz#781eb8900ed265c6d7d35f1b5dd9b19f91440b40"
     integrity sha512-08AokCpMzL6SdxQVfShD7937t+sHntr6FJBpVKq5E/UFPVh0B2lUwU9YrA/MIAdRpGMg1wA+rdwRivtFIs5Law==
+  
+  "@prisma/client@^2.2.0":
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.2.0.tgz#be390658688702a5980b2c8eec673e5a20d90e36"
+    integrity sha512-i7zcVEtMk3QCPCc/oC+vQG2pyXYWWzhPZ11bBxgULo0gL7C/3GPZvAvAkNxpQ0mmt46EdzvpgEBNbg4VdjiR+Q==
+    dependencies:
+      pkg-up "^3.1.0"
   
   "@prisma/debug@2.1.3":
     version "2.1.3"
@@ -1718,10 +1735,10 @@ Lockfile:
       lodash.omitby "^4.6.0"
       merge-graphql-schemas "^1.7.6"
   
-  "@redwoodjs/auth@^0.12.0":
-    version "0.12.0"
-    resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.12.0.tgz#274b92c444e7ff1c064136579f0c8ac1d90efdcf"
-    integrity sha512-ECGhPKpywmsqieXDuDmuPichiEeN5t1Z3Ji7Xe0/xkTrH3HfWKVY3/DRY2lA8ctOXPm/sORr4szH7M/c+kFfbQ==
+  "@redwoodjs/auth@^0.13.0":
+    version "0.13.0"
+    resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.13.0.tgz#f8242c3d9b736d516e90716d4aa2e5b1c4cd8d3b"
+    integrity sha512-jh0LuKKIZgeVZaAJFOmlEdxCzqkTFOIxsD3QHcUlWSLJ4G68P5wDdSLNheSBj3AgYgp2hSIqXv5Rvr6QKtuG8w==
   
   "@redwoodjs/cli@^0.12.0":
     version "0.12.0"
@@ -12705,6 +12722,11 @@ Lockfile:
       double-ended-queue "^2.1.0-0"
       redis-commands "^1.2.0"
       redis-parser "^2.6.0"
+  
+  redwood@^0.0.1:
+    version "0.0.1"
+    resolved "https://registry.yarnpkg.com/redwood/-/redwood-0.0.1.tgz#474a1a107b0b4e069b0dbb0dd975108495234158"
+    integrity sha1-R0oaEHsLTgabDbsN2XUQhJUjQVg=
   
   redwoodjs@^1.0.7:
     version "1.0.7"
