@@ -30,16 +30,6 @@ const Routes = () => {
     <div>
       <div>
         <Switch>
-          {/* <Redirect
-            exact
-            from="/"
-            to="/first"
-            // to="/sign-in"
-            page={FirstPage}
-            layout={MainLayout}
-            // path="/sign-in"
-          /> */}
-
           <RouteWithLayout
             component={DashboardPage}
             exact
@@ -90,13 +80,7 @@ const Routes = () => {
             path="/setting"
             name="setting"
           />
-          <RouteWithLayout
-            component={FirstPage}
-            exact
-            layout={MinimalLayout}
-            path="/"
-            name="first"
-          />
+          <Route component={FirstPage} path="/" name="first" />
         </Switch>
       </div>
     </div>
