@@ -33,9 +33,9 @@ const Routes = () => {
           <Redirect
             exact
             from="/"
-            to="/first"
+            to="/account"
             // to="/sign-in"
-            page={FirstPage}
+            page={AccountPage}
             layout={MainLayout}
             // path="/sign-in"
           />
