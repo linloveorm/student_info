@@ -14,7 +14,7 @@ const auth0 = new Auth0Client({
   client_id: 'Hf1MTzXndZxKu0KPOWyBwG3WTc00RRaH',
   redirect_uri: 'https://omega-next.cmkl.ac.th/account',
   cacheLocation: 'localstorage',
-  audience: 'https://omega-next.cmkl.ac.th',
+  audience: process.env.AUTH0_AUDIENCE,
 })
 
 const browserHistory = createBrowserHistory()
