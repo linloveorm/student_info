@@ -10,8 +10,8 @@ import Routes from './Routes'
 import theme from './theme'
 
 const auth0 = new Auth0Client({
-  domain: 'cmkl-omega.auth0.com',
-  client_id: 'Hf1MTzXndZxKu0KPOWyBwG3WTc00RRaH',
+  domain: process.env.AUTH0_DOMAIN,
+  client_id: process.env.AUTH0_CLIENT_ID,
   redirect_uri: 'https://omega-next.cmkl.ac.th/account',
   cacheLocation: 'localstorage',
   audience: process.env.AUTH0_AUDIENCE,
