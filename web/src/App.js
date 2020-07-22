@@ -17,7 +17,7 @@ const auth0 = new Auth0Client({
   audience: process.env.AUTH0_AUDIENCE,
 })
 
-const browserHistory = createBrowserHistory()
+// const browserHistory = createBrowserHistory()
 
 // const App = () => {
 //   return (
@@ -57,9 +57,7 @@ export default () => (
     <AuthProvider client={auth0} type="auth0">
       <ThemeProvider theme={theme}>
         <RedwoodProvider>
-          <Router history={browserHistory}>
-            <Routes />
-          </Router>
+          <Routes />
         </RedwoodProvider>
       </ThemeProvider>
     </AuthProvider>
