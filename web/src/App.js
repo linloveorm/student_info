@@ -57,7 +57,9 @@ export default () => (
     <AuthProvider client={auth0} type="auth0">
       <ThemeProvider theme={theme}>
         <RedwoodProvider>
-          <Routes />
+          <Router>
+            <Routes />
+          </Router>
         </RedwoodProvider>
       </ThemeProvider>
     </AuthProvider>
