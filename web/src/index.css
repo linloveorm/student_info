@@ -108,3 +108,10 @@ input.error, textarea.error {
   text-size-adjust: 8px
 
 }
+
+
+
+
+.auth0-lock-header-logo {
+  height:  40px !important;
+}
